@@ -1,10 +1,16 @@
-public class PivotePersonalizado {
+public class PivotePersonalizado2 {
 
     public static void main(String[] args) {
+        // int[][] matriz = {
+        //     {1, 2, 3},
+        //     {3, 6, 8},
+        //     {4, 10, 2}
+        // };
+
         int[][] matriz = {
             {1, 4, 5},
             {2, 4, 3},
-            {1, 1, 1}
+            {1, 9, 18}
         };
 
         int n = matriz.length;
@@ -13,6 +19,7 @@ public class PivotePersonalizado {
 
         for (int k = 0; k < n; k++) {
             int[][] nuevaMatriz = new int[n][n];
+
             for (int i = 0; i < n; i++) {
                 for (int j = 0; j < n; j++) {
                     nuevaMatriz[i][j] = matriz[i][j];
@@ -20,12 +27,12 @@ public class PivotePersonalizado {
             }
 
             for (int i = 0; i < n; i++) {
-                if (i == k) continue;
                 for (int j = 0; j < n; j++) {
-                    if (j == k) continue;
-                    int suma = matriz[i][k] + matriz[k][j];
-                    if (suma > matriz[i][j]) {
-                        nuevaMatriz[i][j] = suma;
+                    if (i != k && j != k) {
+                        int suma = matriz[i][k] + matriz[k][j];
+                        if (suma <= matriz[i][j]) {
+                            nuevaMatriz[i][j] = suma;
+                        }
                     }
                 }
             }
